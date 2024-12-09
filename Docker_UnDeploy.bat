@@ -1,6 +1,7 @@
 @ECHO off
-Set UndeployBuild=Build17_20241202_394609
-CD D:\QA\ZIEWEB_Container_v1.0\Build\%UndeployBuild%\
+Title "Docker UnDeployment"
+CALL %Script%\Config_Data.bat
+CD %BuildPath%\%UndeployBuild%\
 docker ps -a 
 docker ps -a --format "{{.ID}}" >>containerID.txt
 FOR /F %%G IN (containerID.txt) DO (
@@ -30,7 +31,7 @@ set /p DockerDeploy=Do You want to Deploy with New Build [y/n] ? :
 if /i %DockerDeploy%==y goto Yes
 if /i %DockerDeploy%==n goto No
 :Yes
-CALL D:\QA\ZIEWEB_Container_v1.0\Build\Script\Docker_Deployment.bat
+CALL %Script%\Docker_Deployment.bat
 ECHO Return to main !!
 :No
 ECHO Returning to Main Menu in 5 secs

@@ -1,7 +1,8 @@
 @ECHO OFF
 Title "Docker Deployment"
 :options
-CD D:\QA\ZIEWEB_Container_v1.0\Build\Script
+CALL Config_Data.bat
+CD %Script%
 ECHO Press 1 to Deploy
 ECHO Press 2 to Undeploy
 set /p Userinput=Enter the option to execute :	

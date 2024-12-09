@@ -1,5 +1,6 @@
 @ECHO OFF
 Title "Docker Deployment"
+ECHO Docker deployment using jenkins
 :options
 CALL Config_Data.bat
 CD %Script%
